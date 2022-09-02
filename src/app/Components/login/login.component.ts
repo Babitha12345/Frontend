@@ -34,14 +34,14 @@ export class LoginComponent implements OnInit {
  editUser:edit={id:0 ,name:"",email:"",password:""}
 
   loadUsers() {
-    this.http.get('http://localhost:8080/getusers').subscribe((users: any) => {
+    this.http.get('http://localhost:8080/retrieve').subscribe((users: any) => {
       this.users = users;
     });
   }
   uploadUsers() {
   if(this.editUser.name.length>0 && this.editUser.email.length>0 && this.editUser.password.length>0)
     {
-    this.http.put('http://localhost:8080/updateusers', this.editUser).subscribe(
+    this.http.put('http://localhost:8080/update', this.editUser).subscribe(
       (res) => {
         alert('Registered Successfully');
         this.registerForm.reset();
@@ -50,12 +50,18 @@ export class LoginComponent implements OnInit {
       },
     );
     }
-      else
+      else 
       {
         alert('Error has occured please enter valid details');
           }
       }
   }
+  // userLogin(){
+  //   console.log(this.user)
+  //   this.Loginuserservice.loginUser(this.user).subscribe(data=>{
+  //     alert("Login Success")
+  //   }.error=>alert("sorry enter correct details"))
+  // }
 
 export interface edit{
   id:number
