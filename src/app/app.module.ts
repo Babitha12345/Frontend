@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
-import { RegisterComponent } from './Components/register/register.component';
+//import { RegisterComponent } from './Components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,7 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './Components/home/home.component';
 import { CatalogueComponent } from './Components/catalogue/catalogue.component';
-import { TestComponent } from './Components/test/test.component';
+//import { TestComponent } from './Components/test/test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddreviewComponent } from './Components/addreview/addreview.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -30,11 +30,11 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
+    //RegisterComponent,
     NavbarComponent,
     HomeComponent,
     CatalogueComponent,
-    TestComponent,
+    //TestComponent,
     AddreviewComponent,
     ReviewComponent,
   ],

@@ -27,7 +27,7 @@ export class ReviewComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  setId(id: number) {
+  setId(id: number) { 
     this.id = id;
     this.localStorage.store('postId', this.id);
     // this.router.navigateByUrl("/review");
