@@ -1,14 +1,77 @@
+/* .bg {
+  margin-top: 4%;
+  margin-left: 4%;
+  position: absolute;
+}
+.header {
+  font-size: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-left: 30%;
+  margin-top: 2%;
+}
+.label {
+  margin-top: 1%;
+  padding-top: 1%;
+}
+.input {
+  margin-top: 1%;
+  margin-right: 1%;
+}
+.regbtn {
+  justify-content: center;
+  width: 20%;
+  margin-left: 30%;
+  margin-top: 3%;
+}
+.alert-danger {
+  margin-top: 2%;
+  color: red;
+  margin-bottom: -3%;
+}
+.body {
+  overflow: hidden;
+} */
+.white{
+  color:white;
+}
 
-  /* .card
-  {
-    margin: 0%;
-    width: 400px;
-    height: 450px;
-    position: relative;
-    left: 35%;
-    top: 85px;
-    border-radius: 21px;
+.content1{
+  background-color: burlywood;
+  height: 92.5vh;
+  justify-content: center;
+  padding-top: 3%;
+  
+}
 
-    background-color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  } */
+.loginhead{
+  margin-left: 22%;
+ }
+
+ 
+ .card3{
+     margin-left: 15%;
+    
+     align-content: cente7;
+ }
+ .card4{
+    
+     margin-left: 2%;
+     align-content: center;
+ }
+ .btn1{
+     margin-left: 25%;
+     margin-top: 20%;
+ }
+ 
+ .formlog{
+ margin-top: 5%;
+ }
+ 
+ 
+
+@media(max-width: 380px) {
+  .wrapper {
+      margin: 30px 20px;
+      padding: 40px 15px 15px 15px
+  }
+}

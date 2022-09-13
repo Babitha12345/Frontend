@@ -1,71 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/authservice.service';
+import { User } from '../user';
 
+
+export const TOKEN_NAME = "token";
 @Component({
-  selector: 'login',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+ user: User=new User();
+  dataa: any;
+  username: any;
+  disp_msg: string;
+  constructor( private router: Router,private auth:AuthserviceService) {
+    this.user=new User();
+   }
 
-  public loginForm! : FormGroup
-  public registerForm! : FormGroup
-
-  constructor(private http: HttpClient, private formBuilder : FormBuilder, private router: Router) {
-    // this.loadUsers();
-  }
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      loginEmail:['',Validators.required],
-      loginPassword:['',Validators.required]
-    })
-    this.registerForm = this.formBuilder.group({
-      username:['',Validators.required],
-      registerEmail:['',Validators.required],
-      registerPassword:['',Validators.required]
-    })
-
   }
-  users: any[] = [];
-
- editUser:edit={id:0 ,name:"",email:"",password:""}
-
-  loadUsers() {
-    this.http.get('http://localhost:8080/retrieve').subscribe((users: any) => {
-      this.users = users;
-    });
+  onSubmit(){
+    console.log(this.user);
+    this.login();
   }
-  uploadUsers() {
-  if(this.editUser.name.length>0 && this.editUser.email.length>0 && this.editUser.password.length>0)
-    {
-    this.http.put('http://localhost:8080/update', this.editUser).subscribe(
-      (res) => {
-        alert('Registered Successfully');
-        this.registerForm.reset();
-        // this.router.navigate(['home']);
-        console.log(this.editUser);
-      },
+  login() {
+    this.auth.login(this.user).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.router.navigate(['/home']);
+         },
+      (error: any) =>console.error(error)
     );
-    }
-      else 
-      {
-        alert('Error has occured please enter valid details');
-          }
-      }
+    
+      
+   
   }
-  // userLogin(){
-  //   console.log(this.user)
-  //   this.Loginuserservice.loginUser(this.user).subscribe(data=>{
-  //     alert("Login Success")
-  //   }.error=>alert("sorry enter correct details"))
-  // }
-
-export interface edit{
-  id:number
-  name:string
-  email:string
-  password:string
+  
 }

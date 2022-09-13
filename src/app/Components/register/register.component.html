@@ -1,36 +1,186 @@
-<!-- <div>
-  <mat-card class="card" style="text-align: center;">
-    <h1>
-      REGISTER
-    </h1>
-    <p>
-      <mat-form-field appearance="legacy">
-        <mat-label>Full Name</mat-label>
-        <input type="name" matInput placeholder="John Adam" required>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field style="color: white;" appearance="legacy">
-        <mat-label>E-mail</mat-label>
-        <input matInput placeholder="abc@gmail.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorEmail()}}</mat-error>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="legacy">
-        <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="********" ngModel>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="legacy">
-        <mat-label>OTP</mat-label>
-        <input matInput placeholder="1234" ngModel>
-      </mat-form-field>
-    </p>
-    <h3 style="color: white;">
-      Already have an account? <a href="/login">Login</a>
-    </h3>
-    <button mat-raised-button color="link">Sign-Up</button>
-  </mat-card>
-</div> -->
+
+<!-- <body>
+
+      
+      <form class="my-form" #userForm="ngForm">
+        <div class="row label">
+          <label name="email">user name</label>
+        </div>
+          
+          <div class="row input">
+            <input
+              [(ngModel)]="user.userName"
+              class="form-control border-dark"
+              type="text"
+              required
+              minlength="4"
+              name="name"
+              #name="ngModel"
+              placeholder="Enter your name"
+            />
+            <div class="alert-danger" *ngIf="name.touched && !name.valid">
+              <div *ngIf="name.errors?.['required']">Name is required.</div>
+              <div *ngIf="name.errors?.['minlength']">Name must be at least 4 characters.</div>
+            </div>
+            <div class="alert-danger" *ngIf="name.untouched || name.valid">
+              <br />
+            </div>
+          </div>
+
+          <div class="row label">
+            <label name="email">Email</label>
+          </div>
+          <div class="row input">
+            <input
+              [(ngModel)]="user.emailId"
+              class="form-control border-dark"
+              required
+              type="text"
+              name="emailid"
+              #emailid="ngModel"
+              placeholder="Enter your email id"
+            />
+            <div class="alert-danger" *ngIf="emailid.touched && !emailid.valid">
+              <div *ngIf="emailid.errors?.['required']">Email id is required.</div>
+              
+            </div>
+            <div
+              class="alert-danger"
+              *ngIf="emailid.untouched || emailid.valid"
+            >
+              <br />
+            </div>
+          </div>
+          <div class="row label">
+            <label name="password">Password</label>
+          </div>
+          <div class="row input">
+            <input
+              [(ngModel)]="user.password"
+              class="form-control border-dark"
+              type="password"
+              required
+              ngModel
+              #password="ngModel"
+              name="password"
+              placeholder="Enter password"
+            />
+            <div
+              class="alert-danger"
+              *ngIf="password.touched && !password.valid"
+            >
+              Password is required
+            </div>
+            <div
+              class="alert-danger"
+              *ngIf="password.untouched || password.valid"
+            >
+              <br />
+            </div>
+          </div>
+  
+      </form>
+    
+     <mat-card-actions>
+      <button [disabled]="userForm.invalid" class="register-user" mat-raised-button color="accent" (click)="register()"
+        id="btn">
+        Register
+      </button>
+    </mat-card-actions>
+
+   
+  <div style="text-align: center;font-size: larger;">{{ disp_msg }}</div>
+</body>   -->
+<nav class="navbar navbar-expand-lg bg-dark">
+  
+</nav>  
+<div class="content1">
+<div class="card mb-3 card3" style="max-width: 1000px;">
+
+    <div class="col-md-6">
+      <div class="card-body card4">
+
+<form class="container" #userform="ngForm" (ngSubmit)="onSubmit()">
+
+  <h1 class="loginhead">SIGN UP</h1>
+
+  
+  <div class=" row formlog">
+      <div class="col-4 headers">
+  <label for="userName">User Name</label></div>
+  <div class="col-8">
+  <input type="text"  
+  [(ngModel)] ="user.userName" 
+  name="userName"
+  required
+  #userName="ngModel"  
+   id="username"  
+   placeholder="Enter User Name"
+   class="form-control"
+   pattern="[A-Za-z]+"
+   >
+<!-- <div 
+class="alert alert-danger" 
+role="alert"
+*ngIf="userName.touched && !userName.valid"
+>
+User Name is required!
+</div>-->
+</div> 
+</div>
+
+<div class=" row formlog">
+  <div class="col-4 headers">
+      <label for="email"> E-MAIL</label></div>
+      <div class="col-8">
+      <input 
+          type="email"  
+          [(ngModel)]="user.emailId"
+          name="email"
+          required 
+          #email="ngModel"   
+          id="email" 
+          placeholder="E-MAIL"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          class="form-control">
+    <div
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="email.touched && !email.valid"
+  >
+    Please provide valid Email Id!
+  </div></div>
+    </div>
+    
+  
+    <div class=" row formlog">
+      <div class="col-4 headers">
+      <label for="password">Password</label></div>
+      <div class="col-8">
+      <input 
+          type="text"
+          [(ngModel)]="user.password" 
+          required 
+          #password="ngModel"   
+          name="password"
+          id="password" 
+          class="form-control"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,12}$"
+          placeholder="Enter password">
+     <div class="alert alert-danger" 
+      role="alert"
+      *ngIf="password.touched && !password.valid">
+          Should contain atleast 1Uppercase, 1Lowercase,1Number, 1Symbol (!@#$%^&*_=+-),Min 6 chars and Max 12 chars!
+  </div> 
+      </div>
+    </div>
+  
+    <div class="row">
+    <button class="btn mt-3 btn1"
+    [disabled]="!userform.valid"
+    type="submit"
+    onsubmit="alert('User Registered Successfully!')">
+    Submit</button></div>
+</form>
+      </div>
+      </div></div></div>

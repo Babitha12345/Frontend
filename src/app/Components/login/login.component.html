@@ -1,49 +1,126 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="login.component.css">
-	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
-	<body>
-		<div class="main">
-			<input type="checkbox" id="chk">
-			<div class="signup">
-				<div>
-					<form [formGroup]="registerForm">
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" formControlName="username" [(ngModel)]="editUser.name" placeholder="User name">
-					<div style="text-align: center;">
-						<span class="text-danger" *ngIf="registerForm.controls['username'].dirty && registerForm.hasError('required','username')">*Please enter a Username</span>
-						</div>
-					<input type="email" formControlName="registerEmail" [(ngModel)]="editUser.email" placeholder="Email">
-					<div style="text-align: center;">
-						<span class="text-danger" *ngIf="registerForm.controls['registerEmail'].dirty && registerForm.hasError('required','registerEmail')">*Please enter the Email</span>
-						</div>
-					<input type="password" formControlName="registerPassword" [(ngModel)]="editUser.password" placeholder="Password">
-					<div style="text-align: center;">
-						<span class="text-danger" *ngIf="registerForm.controls['registerPassword'].dirty && registerForm.hasError('required','registerPassword')">*Please enter the Password</span>
-						</div>
-					<button (click)="uploadUsers()">Sign up</button>
-					</form>
-				</div>
-			</div>
-			<div class="login">
-				<div>
-					<form [formGroup]="loginForm">
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" formControlName="loginEmail" placeholder="Email">
-					<div style="text-align: center;">
-					<span class="text-danger" *ngIf="loginForm.controls['loginEmail'].dirty && loginForm.hasError('required','loginEmail')">*Please enter the Email</span>
-					</div>
-					<input type="password" formControlName="loginPassword" placeholder="Password">
-					<div style="text-align: center;">
-					<span class="text-danger" *ngIf="loginForm.controls['loginPassword'].dirty && loginForm.hasError('required','loginPassword')">*Please enter the password</span>
-					</div>
-					<button type="submit" [disabled]="!loginForm.valid">Login</button>
-					</form>
-				</div>
-			</div>
+
+<!-- <body>
+  
+	<form class="my-form" #userForm="ngForm">
+		<div class="row label">
+			<label name="email">user name</label>
 		</div>
-	</body>
-</html>
+			
+			<div class="row input">
+				<input
+					[(ngModel)]="user.userName"
+					class="form-control border-dark"
+					type="text"
+					required
+					minlength="4"
+					name="name"
+					#name="ngModel"
+					placeholder="Enter your name"
+				/>
+				<div class="alert-danger" *ngIf="name.touched && !name.valid">
+					<div *ngIf="name.errors?.['required']">Name is required.</div>
+					<div *ngIf="name.errors?.['minlength']">Name must be at least 4 characters.</div>
+				</div>
+				<div class="alert-danger" *ngIf="name.untouched || name.valid">
+					<br />
+				</div>
+			</div>
+			<div class="row label">
+				<label name="password">Password</label>
+			</div>
+			<div class="row input">
+				<input
+					[(ngModel)]="user.password"
+					class="form-control border-dark"
+					type="password"
+					required
+					ngModel
+					#password="ngModel"
+					name="password"
+					placeholder="Enter password"
+				/>
+				<div
+					class="alert-danger"
+					*ngIf="password.touched && !password.valid"
+				>
+					Password is required
+				</div>
+				<div
+					class="alert-danger"
+					*ngIf="password.untouched || password.valid"
+				>
+					<br />
+				</div>
+			</div>
+
+	</form> -->
+<!-- <mat-card-actions>
+	<button [disabled]="userForm.invalid" class="register-user" mat-raised-button color="accent" (click)="login   ()"
+		id="btn">
+		Register
+	</button>
+</mat-card-actions>
+
+
+<div style="text-align: center;font-size: larger;">{{ disp_msg }}</div>
+</body>   -->
+<nav class="navbar navbar-expand-lg bg-dark">
+	
+</nav>  
+<div class="content1">
+<div class="card mb-3 card3" style="max-width: 1000px;">
+	<div class="row g-0">
+
+		
+		<div class="col-md-6">
+			<div class="card-body card4">
+		 
+<form class="container" #userform="ngForm" (ngSubmit)="onSubmit()">
+	<h1 class="loginhead">Login</h1>
+	<div class=" row formlog">
+			<div class="col-4 headers">
+				<label for="userName">User Name</label></div>
+				<div class="col-8">
+				<input type="text"  
+				[(ngModel)] ="user.userName" 
+				name="userName"
+				required
+				#userName="ngModel"  
+				 id="username"  
+				 placeholder="Enter User Name"
+				 class="form-control"
+			
+				>
+			 <div 
+			class="alert alert-danger" 
+			role="alert"
+			*ngIf="userName.touched && !userName.valid"
+			>
+			User Name is required!
+		
+		</div> 
+	</div>
+</div>
+<div class=" row formlog">
+	<div class="col-4 headers">
+		<label for="password">Password</label></div>
+		<div class="col-8">
+		<input 
+				type="text"
+				[(ngModel)]="user.password" 
+				name="password"
+				required 
+				#password="ngModel"   
+				id="password" 
+				class="form-control"
+				pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,12}$"
+				placeholder="Enter password">
+	<div class="alert alert-danger" 
+		role="alert"
+		*ngIf="password.touched && !password.valid">
+				Password Required!
+</div>
+		</div>
+	</div>
+	<button [disabled]="!userform.valid" type="submit" class="btn mt-3 btn1">Login</button>
+	</form></div></div></div></div></div>
