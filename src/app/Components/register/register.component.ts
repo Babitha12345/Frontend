@@ -13,6 +13,7 @@ import { User } from '../user';
 export class RegisterComponent implements OnInit {
 
   user: User=new User();
+  router: any;
   constructor(private auth:AuthserviceService ) {
       
      }
@@ -22,27 +23,22 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit(){
-    console.log(this.user);
-    //this.saveUser();
- 
-    console.log(this.user);
-    alert("User Signup successful");
-  }
 
+onSubmit(){
+  console.log(this.user);
+  this.saveUser();
 
-  register() {
-    this.saveuser();
-    
-
-  }
-  saveuser() {
-    this.auth.createUser(this.user).subscribe(
-      (data: any) => {
-        console.log(data);
-        // this.openSuccess();
-      },
-      (error: any) => console.error(error)
-    );
-  }
+  console.log(this.user);
+  alert("User Signup successful");
+  this.router.navigate(['login']);
+  
+}
+saveUser(){
+  this.auth.createUser(this.user).subscribe(
+    (data: any) => {
+      console.log(data);
+    },
+    (error: any) => console.error(error)
+  );
+}
 }

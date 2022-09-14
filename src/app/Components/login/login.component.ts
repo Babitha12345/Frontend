@@ -21,21 +21,41 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit(){
-    console.log(this.user);
-    this.login();
-  }
-  login() {
-    this.auth.login(this.user).subscribe(
-      (data: any) => {
-        console.log(data);
-        this.router.navigate(['/home']);
-         },
-      (error: any) =>console.error(error)
-    );
+//   onSubmit(){
+//     console.log(this.user);
+//     this.login();
+//   }
+//   login() {
+//     this.auth.login(this.user).subscribe(
+//       (data: any) => {
+//         console.log(data);
+//         this.router.navigate(['/home']);
+//          },
+//       (error: any) =>console.error(error)
+//     );
     
       
    
-  }
+//   }
   
+// }
+onSubmit(){
+  console.log(this.user);
+  this.login();
 }
+login() {
+  this.auth.login(this.user).subscribe(
+    (data: any) => {
+      console.log(data);
+      this.router.navigate(['/home']);
+         },
+      (error: any) =>console.error(error)
+    );
+
+   
+}
+
+
+}
+
+

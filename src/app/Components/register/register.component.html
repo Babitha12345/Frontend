@@ -1,96 +1,4 @@
 
-<!-- <body>
-
-      
-      <form class="my-form" #userForm="ngForm">
-        <div class="row label">
-          <label name="email">user name</label>
-        </div>
-          
-          <div class="row input">
-            <input
-              [(ngModel)]="user.userName"
-              class="form-control border-dark"
-              type="text"
-              required
-              minlength="4"
-              name="name"
-              #name="ngModel"
-              placeholder="Enter your name"
-            />
-            <div class="alert-danger" *ngIf="name.touched && !name.valid">
-              <div *ngIf="name.errors?.['required']">Name is required.</div>
-              <div *ngIf="name.errors?.['minlength']">Name must be at least 4 characters.</div>
-            </div>
-            <div class="alert-danger" *ngIf="name.untouched || name.valid">
-              <br />
-            </div>
-          </div>
-
-          <div class="row label">
-            <label name="email">Email</label>
-          </div>
-          <div class="row input">
-            <input
-              [(ngModel)]="user.emailId"
-              class="form-control border-dark"
-              required
-              type="text"
-              name="emailid"
-              #emailid="ngModel"
-              placeholder="Enter your email id"
-            />
-            <div class="alert-danger" *ngIf="emailid.touched && !emailid.valid">
-              <div *ngIf="emailid.errors?.['required']">Email id is required.</div>
-              
-            </div>
-            <div
-              class="alert-danger"
-              *ngIf="emailid.untouched || emailid.valid"
-            >
-              <br />
-            </div>
-          </div>
-          <div class="row label">
-            <label name="password">Password</label>
-          </div>
-          <div class="row input">
-            <input
-              [(ngModel)]="user.password"
-              class="form-control border-dark"
-              type="password"
-              required
-              ngModel
-              #password="ngModel"
-              name="password"
-              placeholder="Enter password"
-            />
-            <div
-              class="alert-danger"
-              *ngIf="password.touched && !password.valid"
-            >
-              Password is required
-            </div>
-            <div
-              class="alert-danger"
-              *ngIf="password.untouched || password.valid"
-            >
-              <br />
-            </div>
-          </div>
-  
-      </form>
-    
-     <mat-card-actions>
-      <button [disabled]="userForm.invalid" class="register-user" mat-raised-button color="accent" (click)="register()"
-        id="btn">
-        Register
-      </button>
-    </mat-card-actions>
-
-   
-  <div style="text-align: center;font-size: larger;">{{ disp_msg }}</div>
-</body>   -->
 <nav class="navbar navbar-expand-lg bg-dark">
   
 </nav>  
@@ -119,13 +27,6 @@
    class="form-control"
    pattern="[A-Za-z]+"
    >
-<!-- <div 
-class="alert alert-danger" 
-role="alert"
-*ngIf="userName.touched && !userName.valid"
->
-User Name is required!
-</div>-->
 </div> 
 </div>
 
@@ -174,13 +75,19 @@ User Name is required!
   </div> 
       </div>
     </div>
-  
+<!--   
     <div class="row">
     <button class="btn mt-3 btn1"
-    [disabled]="!userform.valid"
+    [disabled]="!register.valid"
     type="submit"
     onsubmit="alert('User Registered Successfully!')">
-    Submit</button></div>
+    Submit</button></div> -->
+    <mat-card-actions>
+      <button [disabled]="userform.invalid" class="register-user" mat-raised-button color="accent" (click)="onSubmit()"
+        id="btn">
+        Register
+      </button>
+    </mat-card-actions>
 </form>
       </div>
       </div></div></div>
