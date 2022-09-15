@@ -21,14 +21,14 @@ export class AddreviewComponent implements OnInit {
  editpost:PostPayload={id:"" ,title:"",description:"",review:"", imageUrl:""}
 
   loadposts() {
-    this.http.get('http://localhost:8080/getposts').subscribe((posts: any) => {
+    this.http.get('http://localhost:8081/getposts').subscribe((posts: any) => {
       this.posts = posts;
     });
   }
   uploadposts() {
     if(this.editpost.title.length>0 && this.editpost.description.length>0 && this.editpost.imageUrl.length>0 && this.editpost.review.length>0)
     {
-      this.http.post('http://localhost:8080/postposts', this.editpost).subscribe(
+      this.http.post('http://localhost:8081/postposts', this.editpost).subscribe(
         (res) => {
           alert('Posted Successfully');
           location.reload();

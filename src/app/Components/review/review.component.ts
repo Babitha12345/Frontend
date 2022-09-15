@@ -38,7 +38,7 @@ export class ReviewComponent implements OnInit {
     this.localStorage.store('deleteId', this.id);
     let deleteId = this.localStorage.retrieve('deleteId');
     this.localStorage.store('deleteId', this.id);
-    this.http.delete('http://localhost:8080/deleteposts/'+ deleteId).subscribe((res) => {
+    this.http.delete('http://localhost:8081/deleteposts/'+ deleteId).subscribe((res) => {
       location.reload();
     },(err) => {
       location.reload();

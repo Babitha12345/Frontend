@@ -37,6 +37,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     //TestComponent,
     AddreviewComponent,
     ReviewComponent,
+    
   ],
   imports: [
     BrowserModule,

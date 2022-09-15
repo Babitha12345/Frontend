@@ -25,7 +25,7 @@ export class CatalogueComponent implements OnInit {
 
 
   loadposts() {
-    this.http.get('http://localhost:8080/getposts').subscribe((posts: any) => {
+    this.http.get('http://localhost:8081/getposts').subscribe((posts: any) => {
       this.posts = posts;
     });
   }

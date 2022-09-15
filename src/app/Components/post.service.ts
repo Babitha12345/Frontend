@@ -18,13 +18,13 @@ export class PostService {
 
   getPostByid() {
     let id = this.localStorage.retrieve('postId');
-    let url = 'http://localhost:8080/getposts/' + id;
+    let url = 'http://localhost:8081/getposts/' + id;
     return this.http.get<Array<PostPayload>>(url);
   }
 
   deletePostByid(){
     let id = this.localStorage.retrieve('postId');
-    let url = 'http://localhost:8080/deleteposts/' + id;
+    let url = 'http://localhost:8081/deleteposts/' + id;
     return this.http.delete<Array<PostPayload>>(url);
   }
 
